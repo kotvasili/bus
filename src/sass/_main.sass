@@ -1,0 +1,296 @@
+input[type='number']
+  -moz-appearance: textfield;
+input::-webkit-clear-button,
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button 
+  -webkit-appearance: none;
+input
+  box-shadow : none
+a
+  text-decoration: none
+  transition: color .3s
+  // &:hover
+*
+  -webkit-tap-highlight-color: transparent
+textarea
+  line-height: 1.5
+ul
+  li>a 
+    display: inline-block
+    width: 100%
+html
+  font-size: 16px
+  line-height: 1
+
+  +r(1366)
+    font-size: 15px
+  +r(1280)
+    font-size: 14px
+  +r(991)
+    font-size: 16px
+  +r(769)
+    font-size: 15px
+  +r(544)
+    font-size: 14px
+    overflow-y: scroll
+    overflow-x: hidden
+body
+  background-color: #fff
+  +box
+  +font-smoothing
+  text-rendering: optimizeLegibility
+  & ::selection
+    background-color: #eaf6ef
+    color:#1e2521
+  & ::-moz-selection
+    background-color: #eaf6ef
+    color:#1e2521
+  +r(544)
+
+    overflow-y: scroll
+    overflow-x: hidden
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900&subset=cyrillic')
+
+body
+  font-family: 'Roboto', sans-serif
+
+.black_owerlay
+  position: absolute
+  top: 0vw
+  right: 0
+  bottom: 0
+  height: 100vh
+  width: 60vw
+  background-color: rgba(0, 0, 0, 0.5)
+  z-index: 2
+  opacity: 0
+  visibility: hidden
+  will-change: opacity, visibility
+  transition: opacity .15s,visibility .15s
+  &.show
+    opacity: 1
+    visibility: visible
+
+header
+  position: fixed
+  width: 100vw
+  height: 100vh
+  border-left: 7vw solid
+  border-top: 2.5vw solid
+  border-right: 2.5vw solid
+  border-color: #ffcc00
+  z-index: 1
+  +tr(border-color .3s)
+
+.white_owerlay
+  position: absolute
+  top: 0vw
+  left: 0
+  bottom: 0
+  height: 100vh
+  width: 40vw
+  background-color: rgba(255, 255, 255, 0.5)
+  z-index: 5
+  .snowbord
+    position: absolute
+    top: 18vw
+    left: 5.4vw
+    width: 3.2vw
+    height: 16.2vw
+    &-wrap
+      width: 100%
+      height: 100%
+      position: relative
+      
+    svg 
+      display: inline-block
+      width: 100%
+      height: 100%
+      overflow: visible
+      .cls-1
+        transform: translate3d(0.15vw, 0.8vh,0)
+        +tr(fill .3s .15s)
+        fill: #3399cc
+      .cls-2
+        +tr(fill .3s)
+        fill: #fff
+    svg,.nav-wrap
+      position: absolute
+      left: 0
+      top: 0
+    .nav
+      &-wrap
+        width: 100%
+        height: 100%
+        z-index: 5
+      &-link
+        height: 50%
+        width: 100%
+        cursor: pointer
+        &.bottom
+          transform: translateY(1.1vh)
+ 
+
+.bars
+  position: absolute
+  top: 2.5vw
+  left: 2.5vw
+  width: 5vw
+  height: 1.875vw
+  background-image: url(../images/bars.png)
+  background-size: contain
+  background-repeat: no-repeat
+  z-index: 6
+  cursor: pointer
+  color: transparent
+
+.close
+  background-image: url(../images/close.png)
+  z-index: 5
+  &:after
+    margin-left: 2.5vw
+    content: "Меню"
+    font-weight: 900
+    color: #000
+    font-size: 1.25vw
+    line-height: 1.875vw
+    text-transform: uppercase
+.main_menu
+  position: absolute
+  top: 0vw
+  left: 0
+  bottom: 0
+  height: 100vh
+  width: 40vw
+  z-index: 4
+  overflow: hidden
+  &.show
+    z-index: 5
+    &:after
+      transform: scale(100)
+    ul
+      opacity: 1
+      transform: translateY(0)
+      transition-delay: .35s
+  &:after
+    content: ''
+    position: absolute
+    top: 2.5vw
+    left: 2.5vw
+    z-index: -1
+    +rem(width,45px)
+    +rem(height,45px)
+    background: white
+    border-radius: 50%
+    cursor: pointer
+    transform-origin: center 70%
+    transform: scale(0)
+    transition: all 0.35s ease-out
+  ul
+    list-style: none
+    position: relative
+    float: left
+    margin-left: 2.5vw
+    margin-top: 6vw
+    opacity: 0
+    transform: translateY(5%)
+    transition-property: opacity , transform
+    transition-duration: .15s,.15s
+
+    will-change: transform ,opacity
+    li
+      line-height: 2vw
+      a
+        font-size: 1.25vw
+        color: #000
+        font-weight: 900
+        text-decoration: none
+
+
+
+
+
+.screen_1, .screen_2, .screen_3, .screen_4, .screen_5, .screen_6, .screen_7, .screen_8, .screen_9
+  position: relative
+  float: left
+  width: 100vw
+  height: 100vh
+  margin-top: 2.5vw
+  margin-left: 7vw
+  margin-right: 2.5vw
+  z-index: -5
+
+.screen_1
+  background-image: url(../images/screen_1/back.jpg)
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  width: 90.5vw
+  height: 100vh
+
+.screen_2
+  width: 90.5vw
+  height: 400vh
+
+.screen_3
+  background-image: url(../images/screen_3/back.jpg)
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  width: 90.5vw
+  height: 100vh
+
+.screen_4
+  background-image: url(../images/screen_4/back.jpg)
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  width: 90.5vw
+  height: 100vh
+
+.screen_5
+  width: 90.5vw
+  height: 300vh
+
+.screen_6, .screen_7, .screen_8
+  background-image: url(../images/screen_6/back.jpg)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  width: 90.5vw
+  height: 100vh
+
+.screen_9
+  background-image: url(../images/screen_7/back.jpg)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  width: 33vw
+  height: 100vh
+  margin-right: 0vw
+
+.screen_10
+  background-image: url(../images/screen_8/back.jpg)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  width: 33vw
+  height: 100vh
+  margin-right: 0vw
+
+.screen_11
+  background-image: url(../images/screen_9/back.jpg)
+  background-repeat: no-repeat
+  background-position: top
+  background-size: 132%
+  width: 90.5vw
+  height: 100vh
+  margin-bottom: 2.5vw
+
+footer
+  position: absolute
+  bottom: 2.5vw
+  width: 100%
+  height: 2.5vw
+  background: #ffcc00
+  z-index: 5
