@@ -28,7 +28,7 @@ $(".main").onepage_scroll({
     },  // This option accepts a callback function. The function will be called before the page moves.
     afterMove: function(index) {
         colorpick();
-        onTabs();
+        // onTabs();
     },   // This option accepts a callback function. The function will be called after the page moves.
     loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
     keyboard: true,                  // You can activate the keyboard controls
@@ -67,10 +67,76 @@ function Tabs(){
         }).first().addClass('active');
     });
 } Tabs();
+function centerSlide(){
+$('.slick-slider').on('click', '.slick-slide', function (e) {
+    e.stopPropagation();
+    var index = $(this).data("slick-index");
 
+    
+    if ($('.slick-slider').slick('slickCurrentSlide') !== index ) {
+      $('.slick-slider').slick('slickGoTo', index);
+    }
+    setTimeout(function(){
+        $(this).removeClass('prevdiv');
+    },10)
+  });
+}centerSlide();
+if($('#map').length){
+ var myMap;
+
+ymaps.ready(init);
+
+function init () {
+
+    myMap = new ymaps.Map('map', {
+
+        center: [53.947200, 27.615994], 
+        zoom: 15,
+    }, {
+
+    }),
+    myMap.controls.add(
+       new ymaps.control.ZoomControl()
+    );
+     myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+
+        }, {
+            
+        });
+     
+myMap.geoObjects.add(myPlacemark);
+    };
+}
+var form_subscribe = $('.js-validate');
+if (form_subscribe.length) {
+    form_subscribe.each(function () {
+        var form_this = $(this);
+        $.validate({
+            form : form_this,
+            borderColorOnError : true,
+            scrollToTopOnError : false,
+        });
+    });
+};
 //end of document ready
 });
 //end of document ready
+function animSlide(elem){
+elem.on('Init beforeChange',function(event, slick, currentSlide, nextSlide){
+      var active = elem.find(".slick-current"),
+          items = elem.find(".complex-slider-item"),
+          currslide = elem.find('[data-slick-index='+(currentSlide)+']'),
+          next = elem.find('[data-slick-index='+(nextSlide - 1)+']');
+      if(nextSlide > currentSlide){
+      items.removeClass('prevdiv')
+      //- active.prev().addClass('prevdiv')
+        .parent().find(currslide).addClass('prevdiv').prev().addClass('prevdiv');
+    }else{
+       items.removeClass('prevdiv').parent().find(next).addClass('prevdiv').prev().addClass('prevdiv');
+    }
+
+  });
+}
 function colorpick(){
     var tpareent = $('.main'),
         cont = tpareent.find('section.active'),
@@ -98,21 +164,22 @@ function togglMenu(){
     $(".bars").toggleClass('close');
     $(".black_owerlay").toggleClass('show');  
 }
-function onTabs(){
-    var section = $('.js-tabs-section');
-        if(section.hasClass('active')){
-            var _ = $(this),
-                ibdex = _.data('index'),
-                triggers = section.find('.js-tab-trigger');
-                console.log(ibdex)
-                $(document).on('mousewheel DOMMouseScroll MozMousePixelScroll',function(e){
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false
-                   triggers.filter('.active').next().trigger('click'); 
-                    $(".main").moveTo(ibdex);
-               });
-        }
+// function onTabs(){
+//     var section = $('.js-tabs-section');
+//         if(section.hasClass('active')){
+//             var _ = $(this),
+//                 ibdex = _.data('index'),
+//                 triggers = section.find('.js-tab-trigger');
+//                 console.log(ibdex)
+//                 $(document).on('mousewheel DOMMouseScroll MozMousePixelScroll',function(e){
+//                     e.preventDefault();
+//                     e.stopPropagation();
+                    
+//                    triggers.filter('.active').next().trigger('click'); 
+//                     $(".main").moveTo(ibdex);
+//                     return false
+//                });
+//         }
         // $(document).on('mousewheel DOMMouseScroll MozMousePixelScroll',function(){
         //     if(tabS.hasClass('js-tabs-section') && !triggers.last().hasClass('active')){
         //         $(document).off('mousewheel DOMMouseScroll MozMousePixelScroll').on('mousewheel DOMMouseScroll MozMousePixelScroll',function(){
@@ -134,4 +201,4 @@ function onTabs(){
         //         console.log(2)
         //     }
         // });
-}
+// }

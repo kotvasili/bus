@@ -23,28 +23,28 @@ block content
       .nav-wrap
         .nav-link.top
         .nav-link.bottom
-
-  .main_menu
+  nav.main_menu
     ul
       li
-        a(href='#',data-goto='8') ПРОГРАММЫ ТУРА И СТОИМОСТЬ
+        a(href='#',data-goto='2') ПРОГРАММЫ ТУРА И СТОИМОСТЬ
       li
         a(href='#',data-goto='') РАСПИСАНИЕ ЗАЕЗДОВ
       li
-        a(href='#',data-goto='15') ГАЛЕРЕЯ И ОТЗЫВЫ
+        a(href='#',data-goto='10') ГАЛЕРЕЯ И ОТЗЫВЫ
       li
-        a(href='#',data-goto='') СЕРТИФИКАТЫ
+        a(href='#',data-goto='3') СЕРТИФИКАТЫ
       li
-        a(href='#',data-goto='16') КОНТАКТЫ
+        a(href='#',data-goto='11') КОНТАКТЫ
   span.bars
-
-  .main
+  .tel-wrap
+    a(href="tel:+375293955111") +375 29 3-955-111
+    a(href="tel:+375293955111") +375 29 3-955-111
+  main.main
+    // в каждом блоке data-color - бэкграунд секции, филл и бордер относятся к сноуборду
+    //h1-h6 можно пихать куда угодно, ничего не сломается, я не ставил, т.к. на каждм тайтле они продвиженю не помогут, сеошник лучше знает что куда
     section.screen_1(data-color='#ffcc00',data-fill='#3399cc',data-border='#ffffff')
       .section-wrapper
         .section-block.l
-          .tel-wrap
-            a(href="tel:+375293955111") +375 29 3-955-111
-            a(href="tel:+375293955111") +375 29 3-955-111
           .title Туры в буковель
             span.add-title по самым низким 
               br
@@ -55,32 +55,28 @@ block content
             br
             | низкой цены
           .form-wrapper
-            form(action="")
+            form(action="").js-validate
               .u-text.bl Найди цены на тур 
                 br
                 |ниже наших и мы сделаем предложение выгоднее
               label.has-float-label
-                input(type='text', placeholder='Василий')
+                input(type='text', placeholder='Василий',data-validation="length required", data-validation-length="min2")
                 span Имя
               label.has-float-label
-                input(type='email', placeholder='email@example.com')
+                input(type='email', placeholder='email@example.com',data-validation="email",data-validation-error-msg="E-mail неверный")
                 span E-mail
               label.has-float-label
-                input(type='tel', placeholder='+37525XXXXXXX')
+                input(type='tel', placeholder='+37525XXXXXXX',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Введите номер в формате +375ХХХХХХХХХ")
                 span Телефон
               button(type='submit').btn.t-blue Назвать цену
     section.js-tabs-section.block2-section.screen_2(data-color='#3399cc',data-fill='#ffcc00',data-border='#000000')
       .section-wrapper
         .section-block.l
-          .tel-wrap
-            a(href="tel:+375293955111") +375 29 3-955-111
-            a(href="tel:+375293955111") +375 29 3-955-111
           .logo-wrap
             .logo(style='background-image:url(images/logo.png)')
           .title.yellow у тебя есть 4 уникальных причины
-            span.add-title чтобы выбрать SKY BUS TEAM
-          
-        .section-block.r
+            span.add-title чтобы выбрать SKI BUS TEAM
+        .section-block.r.blackbg
           .tabs.js-tabs-wrap
             .tabs-head
               .tabs-item.js-tab-trigger
@@ -118,28 +114,462 @@ block content
                   |наша команда будет перечислять 10% от прибыли 
                   br
                   |с туристической услуги в течении всего зимнего сезона. 
-                a(href="#") Читать подробнее…              
+                a(href="#").link-nav Читать подробнее…              
               .tabs-cont
                 .w-title 3 идеально продуманных программы тура
                 p.u-text Было проработано 3 пакетных предложения 
                   br
                   | тура в Буковель на любой вкус и бюджет. 
-                a(href="#") Подробнее…        
+                a(href="#").link-nav Подробнее…        
 
     section.screen_3(data-color='#ff9900',data-fill='#ffcc00',data-border='#000000')
+      .section-wrapper
+        .section-block.l 
+          .title.yellow Сертификат
+            span.add-title на бесплатное обучение
+              br 
+              |сноубордигу
+              br
+              |и горных лыжам
+              br
+              | в ГК "Логойск"
+        .section-block.r.blackbg
+          .rcont-wrap
+            .form-wrapper
+              form(action="").js-validate
+                .u-text.bl Сертификат
+                  br
+                  |действителен для всех,
+                  br
+                  |кто оставит заявку!
+                  .add-text
+                    |Независимот от того,
+                    br
+                    |покупаете вы тур или нет.
+                label.has-float-label
+                  input(type='text', placeholder='Василий',data-validation="length required", data-validation-length="min2")
+                  span Имя
+                label.has-float-label
+                  input(type='email', placeholder='email@example.com',data-validation="email",data-validation-error-msg="E-mail неверный")
+                  span E-mail
+                label.has-float-label
+                  input(type='tel', placeholder='+37525XXXXXXX',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Введите номер в формате +375ХХХХХХХХХ")
+                  span Телефон
+                button(type='submit').btn.t-blue Назвать цену
+            .ltext-wrap
+              .w-title.fsmall Заполните форму и получите сертификат на почту
+              p.u-text.fl С вами связывается наш менеджер, уточняет удобный для вас день и сообщает время отправления автобуса
+              p.u-text.fl Предъявите сертификат перед отправлением и получите незабываемый мастер-класс от профессиональных инструкторов
+            .rcont-wrap
+              .soc-wrap
+                a(href="#", target='_blank').soc-item.vk
+                a(href="#",target='_blank').soc-item.inst
+
+              .u-text.fextrasmall Также вступайте в наши группы в социальных сетях
+                br
+                |и участвуйте в еженедельных розыгрышах
+                br
+                |бесплатных туров в Буковель
+                br
+                |и элементов профессиональной
+                br
+                |экипировки!!!
     section.screen_4(data-color='#66cc66',data-fill='#ffcc00',data-border='#000000')
-    section.screen_5.parallax-window(data-parallax='scroll', data-image-src='images/screen_5/back.jpg',data-color='#993300',data-fill='#ff9900',data-border='#000000')
-      section
-      section
-    section.screen_6(data-color='#ff6633',data-fill='#ffcc00',data-border='#000000')
-    section.screen_7(data-color='#ff6633',data-fill='#ffcc00',data-border='#000000')
-    section.screen_8(data-color='#ff6633',data-fill='#ffcc00',data-border='#000000')
+      .section-wrapper
+        .section-block.l 
+          .title.noshadow.noupper SKI BUS TEAM
+            br
+            | дает добро!!!
+            span.add-title Весь зимний сезон будет действовать
+              br
+              |благотворительная акция помощи
+              br
+              |детским домам Беларуси.
+            span.add-title Ежемесячно наша команда будет
+              br
+              |перечислять 10% от прибыли
+              br
+              |с туристической услуги
+              br
+              |в разные детские дома.
+            span.add-title До 10 числа каждого месяца
+              br
+              |отсканированная версия транзакции будет
+              br
+              |публиковаться на всех наших сайтах
+              br
+              |и группах в соц.сетях.
+            span.add-title Стань добрее вместе с командой SKI BUS!
+        .section-block.r.blackbg
+          .rcont-wrap
+            .team-img
+              img(src="images/team.jpg", alt="")
+            a(href="#").btn Хочу с вами!
+    section.screen_5.js-tabs-section(data-parallax='scroll', data-image-src='images/screen_5/back.jpg',data-color='#993300',data-fill='#ff9900',data-border='#000000')
+      .section-wrapper.js-tabs-wrap
+        .section-block.l           
+          .title.noshadow.noupper Программы
+            br
+            | тура
+          .programm-head
+            .programm-item.js-tab-trigger
+              .programm-name БАЗОВАЯ
+              .programm-descr 4 дня(3 ночи) / 5 дней(4 ночи)
+            .programm-item.js-tab-trigger
+              .programm-name ПРОДВИНУТАЯ
+              .programm-descr 4 дня(3 ночи) / 5 дней(4 ночи)
+            .programm-item.js-tab-trigger
+              .programm-name КОМФОРТНАЯ
+              .programm-descr 4 дня(3 ночи) / 5 дней(4 ночи)
+        .tabs-body
+          .tabs-cont.section-block.r.green
+            ul.programm-list
+              li
+                span Специально для тех, кто только учится и, напротив, для профи, которые делают упор на катания и совершенствование своего скила.
+              li 
+                span Трансфер Минск - Буковель - Минск
+              li 
+                span Проживание в отельном комплексе «Загадка Карпат»
+              li 
+                span Завтраки и ужины
+              li 
+                span Ежедневный трансфер к подъёмнику №1
+              li 
+                span Скипасс со скидкой
+              li 
+                span Бесплатное обучение (лыжи/сноуборд) в горах и на проекторе
+              li 
+                span Квест/конкурс на горе за призы
+              li 
+                span Вечеринка с алкоголем и шашлыком за счёт SKI BUS Team
+              li 
+                span Очки виртуальной реальности (вечерний досуг + в транспорте)
+              li 
+                span Фото- и видеоотчёт с экшн-камеры и квадрокоптера(дрона)
+            .programm-aside
+              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА стоимость туристической услуги – 40 белорусских рублей
+              .programm-price    
+                .form-wrapper
+                  .price-cont
+                    span.star &#10059;
+                    | от 135 
+                    span &#x0024;  
+                  a(href="#").btn.t-blue Заказать
+          .tabs-cont.section-block.r.orange
+            ul.programm-list
+              li 
+                span Программа была создана для самых активных туристов, способных не только катать с горных вершин, но и «отрываться» вечерами.
+              li 
+                span Трансфер Минск - Буковель - Минск
+              li 
+                span Проживание в сказочной Villa Leku
+              li 
+                span Завтраки и ужины
+              li 
+                span Ежедневный трансфер к подъёмнику №1
+              li
+                span Скипасс со скидкой
+              li 
+                span Бесплатное обучение (лыжи/сноуборд) в горах и на проекторе
+              li 
+                span Квест/конкурс на горе за призы
+              li 
+                span Бани и барбекю
+              li 
+                span Вечеринка с алкоголем и шашлыком за счёт SKI BUS Team
+              li 
+                span Очки виртуальной реальности (вечерний досуг + в транспорте)
+              li 
+                span Трансфер в ночной клуб «БУКА» + 20%скидка на бар и меню
+              li 
+                span Фото- и видеоотчёт с экшн-камеры и квадрокоптера(дрона)
+            .programm-aside   
+              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА стоимость туристической услуги – 40 белорусских рублей
+              .programm-price 
+                .form-wrapper
+                  .price-cont 
+                    span.star &#10059;
+                    | от 175 
+                    span &#x0024;  
+                  a(href="#").btn.t-blue Заказать
+          .tabs-cont.section-block.r.blue
+            ul.programm-list
+              li 
+                span Идеально подойдет туристам с детьми и предпочитающим проживание, соответствующее евростандартам.
+              li 
+                span Трансфер Минск - Буковель - Минск
+              li 
+                span Проживание в Potkovski Hotel (90 метров до подъёмника №1)
+              li
+                span Завтраки и ужины
+              li 
+                span Скипасс со скидкой
+              li
+                span Бесплатное обучение (лыжи/сноуборд) в горах и на проекторе
+              li 
+                span Квест/конкурс на горе за призы
+              li 
+                span Необычная баня «Музей футбола»
+              li 
+                span Очки виртуальной реальности (вечерний досуг + в транспорте)
+              li 
+                span Фото- и видеоотчёт с экшн-камеры и квадрокоптера(дрона)   
+            .programm-aside   
+              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА стоимость туристической услуги – 40 белорусских рублей
+              .programm-price 
+                .form-wrapper
+                  .price-cont 
+                    span.star &#10059;
+                    | от 175 
+                    span &#x0024;  
+                  a(href="#").btn.t-blue Заказать
+              .programm-notify
+                |Вам будет интересно: 
+                .programm-tour
+                  .programm-title Новый горнолыжный тур в СЛОВАКИЮ
+                  a(href="#") Перейти к описанию тура от SKI BUS Team
+    section.screen_6.complex-screen(data-color='#ff6633',data-fill='#ffcc00',data-border='#000000')
+      .section-wrapper
+        .section-block.l
+          .complex-title-wrap
+            .complex-title-inner
+              .title.noshadow Наши
+                br
+                | отельные
+                br
+                | комплексы
+              a(href="#").btn.t-red Подобрать номер
+        .section-block.r
+          .complex-text-wrap
+            .u-text.bold Загадка Карпат
+            .u-text Гостиница с удобным проездом и охраняемой территорией. В распоряжении гостей барбекю и ресторан гуцульской кухни, в котором все блюда готовятся на родниковой воде.
+        .complex-slider-wrap
+          mixin sliders(img)
+            .complex-slider-item(style='background-image:url('+img+')')
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')   
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')           
+    section.screen_7.complex-screen(data-color='#ff6633',data-fill='#ffcc00',data-border='#000000')
+      .section-wrapper
+        .section-block.l
+          .complex-title-wrap
+            .complex-title-inner
+              .title.noshadow Наши
+                br
+                | отельные
+                br
+                | комплексы
+              a(href="#").btn.t-red Подобрать номер
+        .section-block.r
+          .complex-text-wrap
+            .u-text.bold Villa Leku
+            .u-text Комфортабельные номера оформлены в австрийском стиле, особенностью является обработка деревянных стен комнат пчелиным воском.
+        .complex-slider-wrap
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')   
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')   
+    section.screen_8.complex-screen(data-color='#ff6633',data-fill='#ffcc00',data-border='#000000')
+      .section-wrapper
+        .section-block.l
+          .complex-title-wrap
+            .complex-title-inner
+              .title.noshadow Наши
+                br
+                | отельные
+                br
+                | комплексы
+              a(href="#").btn.t-red Подобрать номер
+        .section-block.r
+          .complex-text-wrap
+            .u-text.bold PATKOVSKI HOTEL
+            .u-text Расположен в живописном уголке, у подножия горы Буковель, в центре одноименного курорта. До подъёмника №1 всего 90 метров!
+        .complex-slider-wrap
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')   
+          +sliders('images/slider/1.jpg')
+          +sliders('images/slider/2.jpg')
+          +sliders('images/slider/3.jpg')   
     section.screen_9(data-color='#cccccc',data-fill='#66ccff',data-border='#000000')
+      .section-wrapper
+        .section-block.l
+          .title.noshadow.noupper Команда
+            br
+            |SKI BUS Team
+            .add-title «Отдыхай зимой правильно!»
+        .section-block.r
+          .content-wrap
+            .team-profile-wrap.js-tabs-wrap
+              // инлайново в каждый контейнер пишем background-image 
+              .team-profile-head
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+                .team-profile-item.js-tab-trigger
+                  .team-profile-img(style='background-image:url(images/box.png)')
+              .tabs-body
+                .tabs-cont
+                  .team-profile-name Вадим
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим2
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим3
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим4
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим5
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим6
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим7
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим8
+                  .team-profile-decr основатель и вдохновитель
+                .tabs-cont
+                  .team-profile-name Вадим9
+                  .team-profile-decr основатель и вдохновитель          
+                .tabs-cont
+                  .team-profile-name Вадим10
+                  .team-profile-decr основатель и вдохновитель                          
     section.screen_10(data-color='#ffff33',data-fill='#ff99cc',data-border='#000000')
+      .section-wrapper
+        .section-block.l
+          .title.noshadow.noupper
+            |ГАЛЕРЕЯ
+            br
+            |И ОТЗЫВЫ
+        .section-block.r
+          .content-wrap
+            .team-profile-head.galery
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
+              .team-profile-item
+                .team-profile-img(style='background-image:url(images/box.png)')
     section.screen_11(data-color='#3399cc',data-fill='#ffffff',data-border='#000000')
-      footer
+      .section-wrapper
+        .section-block.l
+          .title.noshadow.noupper
+            |НАШИ
+            br
+            |КОНТАКТЫ:
+            .add-title
+              |220090, Минск,
+              br
+              |Логойский тракт 22а,
+              br
+              |корпус 1, офис 301
+              .contant-tel
+                a(href="tel:+375293955111") +375 29 3-955-111
+                a(href="tel:+375293955111") +375 29 3-955-111
+              a(href="mailto:skibus99@gmail.com") skibus99@gmail.com
+        .section-block.r
+          .content-wrap
+            #map
+            .form-wrapper
+              form(action="").js-validate
+                .u-text.bold Остались вопросы?
+                .imput-wrapper
+                  label.has-float-label
+                    input(type='text', placeholder='Василий',data-validation="length required", data-validation-length="min2")
+                    span Имя
+                .imput-wrapper
+                  label.has-float-label
+                    input(type='email', placeholder='email@example.com',data-validation="email",data-validation-error-msg="E-mail неверный")
+                    span E-mail
+                .imput-wrapper
+                  label.has-float-label
+                    textarea(placeholder='Ваше сообщение',rows='4',data-validation="length required", data-validation-length="min2")
+                button(type='submit').btn.t-blue Задать вопрос
   script(type='text/javascript').
     jQuery(window).trigger('resize').trigger('scroll');
+  script.
+    function complex(){
+      $( ".complex-slider-wrap").each( function() {
+        var _this = $(this);
+        _this.slick({
+          accessibility: true,
+          arrows: true,
+          draggable: true,
+          touchMove: false,
+          infinite: false,
+          centerMode: true,
+          centerPadding: '0px',
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          appendArrows: _this.parents('.section-wrapper').find('.complex-title-wrap'),
+          nextArrow:'<button type="button" class="carousel-next"><div class="icon"></div></button>',
+          prevArrow:'<button type="button" class="carousel-prev"><div class="icon"></div></button>',
+        });
+        animSlide(_this);
+      });
+
+    }complex();
 
 
   
