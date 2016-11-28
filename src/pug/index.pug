@@ -75,7 +75,7 @@ block content
           .logo-wrap
             .logo(style='background-image:url(images/logo.png)')
           .title.yellow у тебя есть 4 уникальных причины
-            span.add-title чтобы выбрать SKI BUS TEAM
+            span.add-title выбрать SKI BUS TEAM
         .section-block.r.blackbg
           .tabs.js-tabs-wrap
             .tabs-head
@@ -93,7 +93,7 @@ block content
                   br
                   | низкой цены
                 p.u-text Если вы нашли цены ниже наших, просто 
-                  a(href="#") позвоните 
+                  a(href="#",onclick='event.preventDefault();$(".main").moveTo(11);') позвоните 
                   |к нам в офис или оставьте заявку и мы сделаем предложение выгоднее
                 a(href="#").btn Оставить заявку
               .tabs-cont
@@ -101,8 +101,8 @@ block content
                   br 
                   |на бесплатное обучение (лыжи/сноуборд) в ГК «Логойск»
                 p.u-text Заполните заявку 
-                  a(href="#") здесь 
-                  | и получите сертификат на бесплатное обучение с профессиональным инструктором, независимо от того покупаете ли вы тур у нас или нет.            
+                  a(href="#",onclick='event.preventDefault();$(".main").moveTo(3);') здесь 
+                  | и получите сертификат на бесплатное обучение с профессиональным инструктором, независимо от того покупаете вы тур или нет.            
               .tabs-cont
                 .w-title Акция помощи 
                   br
@@ -114,13 +114,13 @@ block content
                   |наша команда будет перечислять 10% от прибыли 
                   br
                   |с туристической услуги в течении всего зимнего сезона. 
-                a(href="#").link-nav Читать подробнее…              
+                a(href="#",onclick='event.preventDefault();$(".main").moveTo(4);').link-nav Читать подробнее…              
               .tabs-cont
                 .w-title 3 идеально продуманных программы тура
                 p.u-text Было проработано 3 пакетных предложения 
                   br
                   | тура в Буковель на любой вкус и бюджет. 
-                a(href="#").link-nav Подробнее…        
+                a(href="#",onclick='event.preventDefault();$(".main").moveTo(5);').link-nav Подробнее…        
 
     section.screen_3(data-color='#ff9900',data-fill='#ffcc00',data-border='#000000')
       .section-wrapper
@@ -130,7 +130,7 @@ block content
               br 
               |сноубордигу
               br
-              |и горных лыжам
+              |и горным лыжам
               br
               | в ГК "Логойск"
         .section-block.r.blackbg
@@ -155,15 +155,15 @@ block content
                 label.has-float-label
                   input(type='tel', placeholder='+37525XXXXXXX',data-validation="custom",data-validation-regexp="^[-0-9()+ ]+$",data-validation-error-msg="Введите номер в формате +375ХХХХХХХХХ")
                   span Телефон
-                button(type='submit').btn.t-blue Назвать цену
+                button(type='submit').btn.t-blue Получить
             .ltext-wrap
               .w-title.fsmall Заполните форму и получите сертификат на почту
               p.u-text.fl С вами связывается наш менеджер, уточняет удобный для вас день и сообщает время отправления автобуса
               p.u-text.fl Предъявите сертификат перед отправлением и получите незабываемый мастер-класс от профессиональных инструкторов
             .rcont-wrap
               .soc-wrap
-                a(href="#", target='_blank').soc-item.vk
-                a(href="#",target='_blank').soc-item.inst
+                a(href="https://vk.com/skibusby", target='_blank').soc-item.vk
+                a(href="https://www.instagram.com/skibus_bukovel/",target='_blank').soc-item.inst
 
               .u-text.fextrasmall Также вступайте в наши группы в социальных сетях
                 br
@@ -179,7 +179,7 @@ block content
         .section-block.l 
           .title.noshadow.noupper SKI BUS TEAM
             br
-            | дает добро!!!
+            | даёт добро!!!
             span.add-title Весь зимний сезон будет действовать
               br
               |благотворительная акция помощи
@@ -191,15 +191,14 @@ block content
               br
               |с туристической услуги
               br
-              |в разные детские дома.
-            span.add-title До 10 числа каждого месяца
-              br
-              |отсканированная версия транзакции будет
+              |в детские дома.
+            span.add-title
+              |Отсканированная версия транзакции будет
               br
               |публиковаться на всех наших сайтах
               br
               |и группах в соц.сетях.
-            span.add-title Стань добрее вместе с командой SKI BUS!
+            span.add-title Стань добрее с командой SKI BUS!
         .section-block.r.blackbg
           .rcont-wrap
             .team-img
@@ -247,7 +246,7 @@ block content
               li 
                 span Фото- и видеоотчёт с экшн-камеры и квадрокоптера(дрона)
             .programm-aside
-              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА стоимость туристической услуги – 40 белорусских рублей
+              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА туристическая услуга – 40 белорусских рублей
               .programm-price    
                 .form-wrapper
                   .price-cont
@@ -284,7 +283,7 @@ block content
               li 
                 span Фото- и видеоотчёт с экшн-камеры и квадрокоптера(дрона)
             .programm-aside   
-              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА стоимость туристической услуги – 40 белорусских рублей
+              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА туристическая услуга – 40 белорусских рублей
               .programm-price 
                 .form-wrapper
                   .price-cont 
@@ -315,7 +314,7 @@ block content
               li 
                 span Фото- и видеоотчёт с экшн-камеры и квадрокоптера(дрона)   
             .programm-aside   
-              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА стоимость туристической услуги – 40 белорусских рублей
+              .programm-notify *в стоимость программы НЕ ВКЛЮЧЕНА туристическая услуга – 40 белорусских рублей
               .programm-price 
                 .form-wrapper
                   .price-cont 

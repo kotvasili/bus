@@ -16,6 +16,7 @@ function ScrollToSlide(){
         })
     })
 }ScrollToSlide();
+
 $(".main").onepage_scroll({
     sectionContainer: "section",     // sectionContainer accepts any kind of selector in case you don't want to use section
     easing: "cubic-bezier(.82,.25,.43,.94)",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
@@ -164,41 +165,41 @@ function togglMenu(){
     $(".bars").toggleClass('close');
     $(".black_owerlay").toggleClass('show');  
 }
-// function onTabs(){
-//     var section = $('.js-tabs-section');
-//         if(section.hasClass('active')){
-//             var _ = $(this),
-//                 ibdex = _.data('index'),
-//                 triggers = section.find('.js-tab-trigger');
-//                 console.log(ibdex)
-//                 $(document).on('mousewheel DOMMouseScroll MozMousePixelScroll',function(e){
-//                     e.preventDefault();
-//                     e.stopPropagation();
+function onTabs(){
+    var section = $('.js-tabs-section');
+        if(section.hasClass('active')){
+            var _ = $(this),
+                ibdex = _.data('index'),
+                triggers = section.find('.js-tab-trigger');
+                console.log(ibdex)
+                $(document).on('mousewheel DOMMouseScroll MozMousePixelScroll',function(e){
+                    e.preventDefault();
+                    e.stopPropagation();
                     
-//                    triggers.filter('.active').next().trigger('click'); 
-//                     $(".main").moveTo(ibdex);
-//                     return false
-//                });
-//         }
-        // $(document).on('mousewheel DOMMouseScroll MozMousePixelScroll',function(){
-        //     if(tabS.hasClass('js-tabs-section') && !triggers.last().hasClass('active')){
-        //         $(document).off('mousewheel DOMMouseScroll MozMousePixelScroll').on('mousewheel DOMMouseScroll MozMousePixelScroll',function(){
-        //            triggers.filter('.active').next().trigger('click'); 
+                   triggers.filter('.active').next().trigger('click'); 
+                    $(".main").moveTo(ibdex);
+                    return false
+               });
+        }
+        $(document).on('mousewheel DOMMouseScroll MozMousePixelScroll',function(){
+            if(tabS.hasClass('js-tabs-section') && !triggers.last().hasClass('active')){
+                $(document).off('mousewheel DOMMouseScroll MozMousePixelScroll').on('mousewheel DOMMouseScroll MozMousePixelScroll',function(){
+                   triggers.filter('.active').next().trigger('click'); 
                 
-        //         // if(triggers.eq(count).hasClass('active')){
-                //     console.log(2)
-                //     e(document).bind("mousewheel DOMMouseScroll MozMousePixelScroll",
-                //     function(t) {
-                //     t.preventDefault();
-                //     var n=t.originalEvent.wheelDelta||-t.originalEvent.detail;
-                //     if(!e("body").hasClass("disabled-onepage-scroll"))u(t, n)
-                //         }
-                //     );
-                // }
-                // });
-        //         return false
-        //     }else{
-        //         console.log(2)
-        //     }
-        // });
-// }
+                if(triggers.eq(count).hasClass('active')){
+                    console.log(2)
+                    e(document).bind("mousewheel DOMMouseScroll MozMousePixelScroll",
+                    function(t) {
+                    t.preventDefault();
+                    var n=t.originalEvent.wheelDelta||-t.originalEvent.detail;
+                    if(!e("body").hasClass("disabled-onepage-scroll"))u(t, n)
+                        }
+                    );
+                }
+                });
+                return false
+            }else{
+                console.log(2)
+            }
+        });
+}
